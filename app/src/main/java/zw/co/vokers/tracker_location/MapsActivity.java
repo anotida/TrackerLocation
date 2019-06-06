@@ -2,6 +2,8 @@ package zw.co.vokers.tracker_location;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -61,9 +64,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng location = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-        mMap.addMarker(new MarkerOptions().position(location).title("Driver location"));
+        mMap.addMarker(new MarkerOptions().position(location).title("Driver location").snippet("Tinashe Ndoro"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13.0f));
+
+        /*mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(-17.802820, 31.075953))
+                .anchor(0.5f, 0.5f)
+                .title("My Location")
+                .snippet("Client"));*/
 
     }
 }
